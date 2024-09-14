@@ -1,4 +1,4 @@
-# service Registry:-  
+# Service Registry:-  
 Service registry looks like a centralized database or directory where all information about registered service stored.
 service registry contains the information about service and their location is stored and maintained.
 Service Registry serves as a central hub for managing service discovery and communication in a microservices architecture. 
@@ -18,5 +18,8 @@ some service registry having capability to handle load balancing.
 distribute incomming request among multiple instance of same service. this helps optimize resource utiliztion, improving performance, and enhancing fault taularance.
 
 
-
+# API Gateway:- 
+An API gateway accept request from client, process them based on defined policy and direct them to the appropriate service.
+It acts as middle man between the client and groups of microservice.
+### 1. Single point of interection 
 
