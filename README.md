@@ -31,5 +31,17 @@ API Gateway abstracting the underline artitecture and provide unified interface 
 ### 1. Routing 
 when a client send request to API Gateway, API Gateway will identify which microservice will serve the commig request.
 This routing can be based on various criteria such as the URL path, HTTP method, or headers.
+### 2. Protocol Translation
+API Gateway has capability to translate request from one protocol to another.
+It can accept http request from client and convert then gRPC and websocket request for backend service.
+### 3. Authentication and Authorization 
+API gateway can handle Authentication and authorization for incomming request.it can check the necesarray permission to access the request.
+### 3. Set the rate limit
+### 4. Load Balancing 
+The API Gateway can distribute incoming requests across multiple instances of a service to ensure high availability and scalability.
+### 5. Caching 
+To improve performance, the API Gateway can cache responses from backend services and serve them directly to clients for subsequent identical requests.
+### 5. Monitoring and loging 
+The API Gateway can collect metrics and logs for incoming requests, providing insights into the usage and performance of the system
 
 
