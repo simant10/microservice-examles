@@ -44,4 +44,14 @@ Service Registry serves as a central hub for managing service discovery and comm
 ### 5. Monitoring and loging 
 >The API Gateway can collect metrics and logs for incoming requests, providing insights into the usage and performance of the system
 # $${\color{red} Challenges Using API Gateway:-}$$:-
-
+we can face following chalangages into API Gateway 
+### 1. Performance bottlenecks:-
+> As we know API gateay provide single entry point to client so we need to configure it very carefully so that it can handle the load.
+### 2. Security :-
+> Misconfiguration API can lead security vulranibility risk such as improper authentication, authorization, or exposure of sensitive information
+> Regular security audits and updates are essential to mitigate these risks.
+### 3. Monitoring and logging :-
+>Monitoring and logging the API Gateway’s performance and behavior can be complex, especially when dealing with a large number of requests and services
+### 3. Complexity :-
+> Managing and configuring an API Gateway can be complex, especially in environments with a large number of services and endpoints
+> Proper documentation and automation tools can help reduce this complexity.
