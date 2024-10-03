@@ -91,6 +91,12 @@
    ```
    ![image](https://github.com/user-attachments/assets/87dc34d8-149e-4074-9a18-4b17b8a66de8)
 
+* Build and run the application ( All instance is down in the below screen sort)
+  ![image](https://github.com/user-attachments/assets/ff4c953f-e2ca-44f7-a877-40cd1e4d1b67)
+  
+* I starter both the service named department and user
+  
+
 
 # $${\color{green}API Gateway:-}$$ 
 >An API gateway accept request from client, process them based on defined policy and direct them to the appropriate service.
