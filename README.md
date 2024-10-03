@@ -82,19 +82,28 @@
    ```javascripts
       eureka:
         client:
-          register-with-eureka: false
-          fetch-registry: false  
+          register-with-eureka: true
+          fetch-registry: true  
           service-url:
               defaultZone: http://localhost:8761/eureka/
         instance:
           hostname: localhost 
    ```
-   ![image](https://github.com/user-attachments/assets/87dc34d8-149e-4074-9a18-4b17b8a66de8)
+   ![image](https://github.com/user-attachments/assets/c1c8290f-8b24-48e2-b073-977aeb65632c)
+
 
 * Build and run the application ( All instance is down in the below screen sort)
   ![image](https://github.com/user-attachments/assets/ff4c953f-e2ca-44f7-a877-40cd1e4d1b67)
   
-* I starter both the service named department and user
+* Anotate the service main class using **@EnableDiscoveryClient** 
+![image](https://github.com/user-attachments/assets/cbdb1417-1b77-4b14-ad15-852bf5138c96)
+
+* First start the **service-registry** 
+* start both the service named **department and user**
+* open the **http://localhost:8761/** URL into browser
+
+  ![image](https://github.com/user-attachments/assets/0398cb41-82f3-498a-a040-89b20a22da17)
+
   
 
 
