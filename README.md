@@ -17,6 +17,79 @@
 ### 4. Load Balancing
 >some service registry having capability to handle load balancing.
 >distribute incomming request among multiple instance of same service. this helps optimize resource utiliztion, improving performance, and enhancing fault taularance.
+## How to integrate service registry:- 
+
+#### 1. Eureka Server Configuration
+* Go to start.spring.io and dependency **Eureka Server (Spring Cloud Discovery)**
+![image](https://github.com/user-attachments/assets/77cf6062-143e-42fc-bc85-58b256de5bab)
+
+* Click on Generate and extract zip file and open it into your IDE
+* Create an application.yml file and write some configuration
+* ```javascripts
+      server:
+        port: 8761
+       eureka:
+        client:
+          register-with-eureka: false
+          fetch-registry: false  
+  ```
+
+  ![image](https://github.com/user-attachments/assets/fa0739c2-96a2-4a71-a2c8-02797fc4a151)
+
+* Anotate main class with **@EnableEurekaServer** annotation
+  
+![image](https://github.com/user-attachments/assets/89d13061-3418-48ff-8d46-7966ae704644)
+
+#### 2. Eureka Client Configuration
+* In Eureka Client configuration we need to update our eisting services with Eureka Client configuration
+* Add Eureka client dependency into services pom file
+  ```javascripts
+        <properties>
+        		<java.version>17</java.version>
+        		 <spring-cloud.version>2023.0.3</spring-cloud.version>
+	      </properties>
+  
+       <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      </dependency>
+
+
+     <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+        </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  ```
+![image](https://github.com/user-attachments/assets/6c79eb8b-34fc-457c-8cf1-da2eac847b3c)
+
+* Update application.yml file with the below configuration 
+   ```javascripts
+      eureka:
+        client:
+          register-with-eureka: false
+          fetch-registry: false  
+          service-url:
+              defaultZone: http://localhost:8761/eureka/
+        instance:
+          hostname: localhost 
+   ```
+   ![image](https://github.com/user-attachments/assets/87dc34d8-149e-4074-9a18-4b17b8a66de8)
 
 
 # $${\color{green}API Gateway:-}$$ 
