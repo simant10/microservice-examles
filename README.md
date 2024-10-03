@@ -1,7 +1,8 @@
 # $${\color{green}Service Registry:-}$$  
-Service registry looks like a centralized database or directory where all information about registered service stored.
-service registry contains the information about service and their location is stored and maintained.
-Service Registry serves as a central hub for managing service discovery and communication in a microservices architecture. 
+* Service registry looks like a centralized database or directory where all information about registered service stored.
+* service registry contains the information about service and their location is stored and maintained.
+* Service Registry serves as a central hub for managing service discovery and communication in a microservices architecture. 
+* Service Registory helps up to remember all the service url  and their ports and etc....
 ## How service registry works :- 
 ### 1. Service Registration
 >When we create a service then we can register that service into service registry.
