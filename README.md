@@ -214,6 +214,20 @@ we can face following chalangages into API Gateway
         instance:
           hostname: localhost 
 ```
+![image](https://github.com/user-attachments/assets/05f6e181-ff17-4466-aeb6-5b2eafa159ee)
+
 
 * Run All the services user-service, department-service, service-registry and apigateway and open service registry url into browser **http://localhost:8761/**. you can see the service up and running .
-  ![image](https://github.com/user-attachments/assets/2093bdf0-ebeb-40d1-9610-29e6d023d0e0)
+ ![image](https://github.com/user-attachments/assets/cea426f6-d955-45e5-891d-451d55ff4154)
+
+* Now we can use **one centralized end point** that is **http://localhost:9191**
+* we do not take bother about host and port of each service .
+* we configured routing, **id:-** refers service name and **path :-** in which controller our requet will lend
+* we can see in the below screen sort both service(either user-service OR department-service) are working with common end point.
+  ![image](https://github.com/user-attachments/assets/af46f4d7-6914-4cdc-8564-4e8cab53601a)
+  ![image](https://github.com/user-attachments/assets/3040b16a-40b3-4d02-836b-b7f9bda61e8c)
+  ![image](https://github.com/user-attachments/assets/72c49c0f-5e69-45d5-82ad-807ffe25b7dd)
+  ![image](https://github.com/user-attachments/assets/46e8552c-01b8-4955-9ecc-17bbb6ef67ad)
+
+
+ 
