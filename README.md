@@ -178,3 +178,42 @@ we can face following chalangages into API Gateway
 ### 3. Complexity :-
 > Managing and configuring an API Gateway can be complex, especially in environments with a large number of services and endpoints
 > Proper documentation and automation tools can help reduce this complexity.
+
+## How to integrate API Gateway:- 
+
+#### 1. API Gateway Configuration
+* Go to start.spring.io and dependency **Eureka discovery Client, Actuator and Gateway**
+* Generate application and import it into your ide
+  ![image](https://github.com/user-attachments/assets/d49ac57f-c9ac-42df-8ffa-615e17632c5f)
+
+* Create an **application.yml** file and Write the below configuration
+```javascripts
+	server:
+         port: 9191
+  
+       spring:
+         application:
+           name: API-GATEWAY
+         cloud:
+          gateway:
+           routes:
+            - id: USER-SERVICE
+              uri: lb://USER-SERVICE
+              predicates:
+               - Path=/user/**
+            - id: DEPARTMENT-SERVICE
+              uri: lb://DEPARTMENT-SERVICE
+              predicates:
+               - Path=/department/**
+	eureka:
+         client:
+          register-with-eureka: true
+          fetch-registry: true  
+	  service-url:
+            defaultZone: http://localhost:8761/eureka/
+        instance:
+          hostname: localhost 
+```
+
+* Run All the services user-service, department-service, service-registry and apigateway and open service registry url into browser **http://localhost:8761/**. you can see the service up and running .
+  ![image](https://github.com/user-attachments/assets/2093bdf0-ebeb-40d1-9610-29e6d023d0e0)
