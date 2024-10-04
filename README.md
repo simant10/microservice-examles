@@ -234,6 +234,7 @@ we can face following chalangages into API Gateway
 > Circuit Breaker pattern acts as safeguard against service failure
 > IT is a fault tolerance machanism that monitor and control interaction between services.
 > it dyanamicaly manage service availability and it also inturpt request for failing service to prevent syatem overload.
+> we will use **Resilience4J** because **Netflix Hystrix** library is **deprecated** onward  **Spring boot 3** 
 ## Characteristics of circuit breaker pattern
   ### Fault tolerance :- 
   > Fault tolerance refer system capacity to sustain its functionality in presence of software and hardware failure.
@@ -263,3 +264,7 @@ we can face following chalangages into API Gateway
   ### High availability requirement :-
   ### Scaling and load handling
   ### Fault isolation
+  
+## How to implement Circuit Breaker using Netflix Hystrix 
+#### Find Hystrix dependency  :-
+> go to start.spring.io and add hystrix dependency and 
