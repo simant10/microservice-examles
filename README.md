@@ -253,4 +253,13 @@ we can face following chalangages into API Gateway
   ### Open State :-
   > When the monitored metrix not in the acceptable threshold, it is signalling potential issue within downstream service then Circuit breaker moves the transition into OPEN state.
   > IN OPEN state circuit breaker immediately stop forwading request to failing service.
-  > In this case circuit breaker provides a predefined fallback response or an error message 
+  > In this case circuit breaker provides a predefined fallback response or an error message
+  ### Half Open State :-
+  > After a duration of time circuit breaker goes into half-open state. In this state circuit breaker will allow a limited number of test request to failed service and if request got success then circuit breaker reset state with CLOSE
+## When to use circuit breaker patter
+  ### Remote service call :-
+  > When some service try to call other service via network then it may be it encounted failure such as network downtime, service unavailable, slow response ...
+  > This is the case where we can go with the circuit breaker concept
+  ### High availability requirement :-
+  ### Scaling and load handling
+  ### Fault isolation
