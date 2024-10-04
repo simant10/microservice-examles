@@ -15,7 +15,7 @@ import com.spbrother.microservice.user_service.service.UserService;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	@Autowired
 	UserService userService;

@@ -24,7 +24,9 @@ public class UserService {
 	public ResponseTemplate getUserById(Long userId) {
 		ResponseTemplate respTemp = new ResponseTemplate();
 		UserEntity user= userRepository.findByUserId(userId);
-		Department department = restTemplate.getForObject("http://localhost:9001/department/"+user.getDeptId()
+		/*Department department = restTemplate.getForObject("http://localhost:9001/department/"+user.getDeptId()
+		, Department.class);*/
+		Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/department/"+user.getDeptId()
 		, Department.class);
 		respTemp.setUser(user);
 		respTemp.setDepartment(department);
