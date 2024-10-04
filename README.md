@@ -105,6 +105,40 @@
   ![image](https://github.com/user-attachments/assets/0398cb41-82f3-498a-a040-89b20a22da17)
 
   
+#### 2. Other Configurations
+* we specified service name into application.yml file
+```javascripts
+	spring:
+         application:
+           name: DEPARTMENT-SERVICE
+```
+![image](https://github.com/user-attachments/assets/0d67f593-458c-4983-820f-59ae75af9670)
+
+* This will helps us we can use the same **service name** instead of **localhost:port**
+  
+**Before Service Registry**
+  ```javascripts
+	Department department = restTemplate.getForObject("http://localhost:9001/department/"+user.getDeptId()
+		, Department.class);
+		
+  ```
+  **After Service Registry Configuration**
+
+  ```javascripts
+	Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/department/"+user.getDeptId()
+		, Department.class);
+  ```
+![image](https://github.com/user-attachments/assets/fcf9f65d-de7c-46e2-ba45-391260e6a3ee)
+
+
+* **Another intested thing** after configuration of Service Registry, we are calling department service using the service name (as displayed in the above screen sort) as per result **user service will not work** because it is internally calling department service using restTemplate.
+  ![image](https://github.com/user-attachments/assets/2ee832ed-ebbf-46cd-9b64-28133febf40e)
+
+* Solution :- we need to anotate RestTemplate bean using **@LoadBalanced**
+  ![image](https://github.com/user-attachments/assets/522efd2f-7dd8-4b24-88b5-f7555c07a26a)
+
+We can see now user service returning response
+![image](https://github.com/user-attachments/assets/cada5bf2-753d-40e4-bb11-bea47051469b)
 
 
 # $${\color{green}API Gateway:-}$$ 
