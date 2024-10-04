@@ -267,4 +267,4 @@ we can face following chalangages into API Gateway
   
 ## How to implement Circuit Breaker using Netflix Hystrix 
 #### Find Hystrix dependency  :-
-> go to start.spring.io and add hystrix dependency and 
+> go to start.spring.io and add **Resilience4J** dependency and 
