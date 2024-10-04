@@ -230,4 +230,27 @@ we can face following chalangages into API Gateway
   ![image](https://github.com/user-attachments/assets/46e8552c-01b8-4955-9ecc-17bbb6ef67ad)
 
 
- 
+# $${\color{green}Circuit Breaker:-}$$ 
+> Circuit Breaker pattern acts as safeguard against service failure
+> IT is a fault tolerance machanism that monitor and control interaction between services.
+> it dyanamicaly manage service availability and it also inturpt request for failing service to prevent syatem overload.
+## Characteristics of circuit breaker pattern
+  ### Fault tolerance :- 
+  > Fault tolerance refer system capacity to sustain its functionality in presence of software and hardware failure.
+  ### Monitoring :-
+  > Countinuously monitor interaction between service to detect issue in real time.
+  ### Failure Isolation :- 
+  > Temporarily stop sending request to failure service.
+  ### Fallback Machanism :-
+  > Due service failure, we can pass either error message or we can use cached data to endure graceful termination.
+  ### Automatic Recovery :- 
+  > Automatic transition back to normal operation when the failure service recover.
+## States of circuit breaker pattern
+  ### Close State :- 
+  > In CLose state the circuit breaker pattern operates normally and allowing request to flow throw different service.
+  > Monitor health of the downstream service by collecting and analysing metrics such as response time, error rate or timeout.
+  > if mentioned metrix remain within acceptable threshold indicating that downstream service is healthy and the circuit breaker stay in CLOSE state and continue to forward request.
+  ### Open State :-
+  > When the monitored metrix not in the acceptable threshold, it is signalling potential issue within downstream service then Circuit breaker moves the transition into OPEN state.
+  > IN OPEN state circuit breaker immediately stop forwading request to failing service.
+  > In this case circuit breaker provides a predefined fallback response or an error message 
