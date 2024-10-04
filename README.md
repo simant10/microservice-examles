@@ -105,6 +105,40 @@
   ![image](https://github.com/user-attachments/assets/0398cb41-82f3-498a-a040-89b20a22da17)
 
   
+#### 2. Other Configurations
+* we specified service name into application.yml file
+```javascripts
+	spring:
+         application:
+           name: DEPARTMENT-SERVICE
+```
+![image](https://github.com/user-attachments/assets/0d67f593-458c-4983-820f-59ae75af9670)
+
+* This will helps us we can use the same **service name** instead of **localhost:port**
+  
+**Before Service Registry**
+  ```javascripts
+	Department department = restTemplate.getForObject("http://localhost:9001/department/"+user.getDeptId()
+		, Department.class);
+		
+  ```
+  **After Service Registry Configuration**
+
+  ```javascripts
+	Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/department/"+user.getDeptId()
+		, Department.class);
+  ```
+![image](https://github.com/user-attachments/assets/fcf9f65d-de7c-46e2-ba45-391260e6a3ee)
+
+
+* **Another intested thing** after configuration of Service Registry, we are calling department service using the service name (as displayed in the above screen sort) as per result **user service will not work** because it is internally calling department service using restTemplate.
+  ![image](https://github.com/user-attachments/assets/2ee832ed-ebbf-46cd-9b64-28133febf40e)
+
+* Solution :- we need to anotate RestTemplate bean using **@LoadBalanced**
+  ![image](https://github.com/user-attachments/assets/522efd2f-7dd8-4b24-88b5-f7555c07a26a)
+
+We can see now user service returning response
+![image](https://github.com/user-attachments/assets/cada5bf2-753d-40e4-bb11-bea47051469b)
 
 
 # $${\color{green}API Gateway:-}$$ 
@@ -144,3 +178,56 @@ we can face following chalangages into API Gateway
 ### 3. Complexity :-
 > Managing and configuring an API Gateway can be complex, especially in environments with a large number of services and endpoints
 > Proper documentation and automation tools can help reduce this complexity.
+
+## How to integrate API Gateway:- 
+
+#### 1. API Gateway Configuration
+* Go to start.spring.io and dependency **Eureka discovery Client, Actuator and Gateway**
+* Generate application and import it into your ide
+  ![image](https://github.com/user-attachments/assets/d49ac57f-c9ac-42df-8ffa-615e17632c5f)
+
+* Create an **application.yml** file and Write the below configuration
+```javascripts
+	server:
+         port: 9191
+  
+       spring:
+         application:
+           name: API-GATEWAY
+         cloud:
+          gateway:
+           routes:
+            - id: USER-SERVICE
+              uri: lb://USER-SERVICE
+              predicates:
+               - Path=/user/**
+            - id: DEPARTMENT-SERVICE
+              uri: lb://DEPARTMENT-SERVICE
+              predicates:
+               - Path=/department/**
+	eureka:
+         client:
+          register-with-eureka: true
+          fetch-registry: true  
+	  service-url:
+            defaultZone: http://localhost:8761/eureka/
+        instance:
+          hostname: localhost 
+```
+![image](https://github.com/user-attachments/assets/05f6e181-ff17-4466-aeb6-5b2eafa159ee)
+
+
+* Run All the services user-service, department-service, service-registry and apigateway and open service registry url into browser **http://localhost:8761/**. you can see the service up and running .
+ ![image](https://github.com/user-attachments/assets/cea426f6-d955-45e5-891d-451d55ff4154)
+
+* Now we can use **one centralized end point** that is **http://localhost:9191**
+* we do not take bother about host and port of each service .
+* we configured routing, **id:-** refers service name and **path :-** in which controller our requet will lend
+* we can see in the below screen sort both service(either user-service OR department-service) are working with common end point.
+  ![image](https://github.com/user-attachments/assets/af46f4d7-6914-4cdc-8564-4e8cab53601a)
+  ![image](https://github.com/user-attachments/assets/3040b16a-40b3-4d02-836b-b7f9bda61e8c)
+  ![image](https://github.com/user-attachments/assets/72c49c0f-5e69-45d5-82ad-807ffe25b7dd)
+  ![image](https://github.com/user-attachments/assets/46e8552c-01b8-4955-9ecc-17bbb6ef67ad)
+
+
+ 
