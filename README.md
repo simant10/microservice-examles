@@ -234,7 +234,15 @@ we can face following chalangages into API Gateway
 > Circuit Breaker pattern acts as safeguard against service failure
 > IT is a fault tolerance machanism that monitor and control interaction between services.
 > it dyanamicaly manage service availability and it also inturpt request for failing service to prevent syatem overload.
-> we will use **Resilience4J** because **Netflix Hystrix** library is **deprecated** onward  **Spring boot 3** 
+> we will use **Resilience4J** because **Netflix Hystrix** library is **deprecated** onward  **Spring boot 3**
+
+>  **Resilience4J**  came with multiple modules
+>  * Circuit Breaker
+>  * Rate Limit
+>  * Retry
+>  * Bulk head
+>  * Time limiter
+>  * Cache
 ## Characteristics of circuit breaker pattern
   ### Fault tolerance :- 
   > Fault tolerance refer system capacity to sustain its functionality in presence of software and hardware failure.
