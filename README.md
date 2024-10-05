@@ -304,6 +304,8 @@ we can face following chalangages into API Gateway
 
 	sudo docker run hello-world
 
+	docker run -d -p 9411:9411 openzipkin/zipkin
+
 ```
 * Open Zipkins Using browser
   ![image](https://github.com/user-attachments/assets/cb67e00f-970e-49c4-b083-56d78448dee3)
